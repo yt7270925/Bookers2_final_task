@@ -24,6 +24,7 @@
         </div>
       </div>
       <div class="col-md-8 offset-md-1">
+        <!-- Book detail -->
         <h2>Book detail</h2>
         <table class="table">
           <tbody>
@@ -31,6 +32,20 @@
               <td><%= image_tag @book.user.get_profile_image(100,100) %></td>
               <td><%= link_to @book.title, book_path(@book.id) %></td>
               <td><%= @book.body %></td>
+              <% if @book.favorited_by?(current_user) %>
+                <td>
+                  <%= link_to book_favorites_path(@book), method: :delete do %>
+                    <i class="fa-solid fa-heart destroy-heart"></i>
+                    <%= @book.favorites.count %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_favorites_path(@book), method: :post do %>
+                    <i class="fa-solid fa-heart create-heart"></i>
+                    <%= @book.favorites.count %>
+                  <% end %>
+                </td>
+              <% end %>
               <% if @book.user == current_user %>
                  <td><%= link_to "Edit", edit_book_path(@book.id) %></td>
                  <td><%= link_to "Destroy", book_path(@book.id), method: :delete %></td>

@@ -2,6 +2,13 @@ class Book < ApplicationRecord
   # Userモデルとのアソシエーション
   belongs_to :user
 
+  # Favoriteモデルとのアソシエーション
+  has_many :favorites, dependent: :destroy
+
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+
   validates :title, presence: true
   # 最大200文字まで
   validates :body, presence: true, length: { maximum: 200 }

@@ -12,6 +12,9 @@ class User < ApplicationRecord
   # Bookモデルとのアソシエーション
   has_many :books, dependent: :destroy
 
+  # Favoriteモデルとのアソシエーション
+  has_many :favorites, dependent: :destroy
+
   has_one_attached :profile_image
 
   def get_profile_image(width, height)
