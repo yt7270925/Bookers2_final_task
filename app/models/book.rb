@@ -5,6 +5,9 @@ class Book < ApplicationRecord
   # Favoriteモデルとのアソシエーション
   has_many :favorites, dependent: :destroy
 
+  # BookCommentモデルとのアソシエーション
+  has_many :book_comments, dependent: :destroy
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end

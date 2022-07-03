@@ -15,6 +15,9 @@ class User < ApplicationRecord
   # Favoriteモデルとのアソシエーション
   has_many :favorites, dependent: :destroy
 
+  # BookCommentモデルとのアソシエーション 
+  has_many :book_comments, dependent: :destroy
+
   has_one_attached :profile_image
 
 
