@@ -5,4 +5,6 @@ class BookComment < ApplicationRecord
   # Bookモデルとのアソシエーション
   belongs_to :book
 
+  validates :comment, presence: true
+
 end
