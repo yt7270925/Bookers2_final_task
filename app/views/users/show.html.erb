@@ -23,6 +23,7 @@
           <% end %>
         </div>
       </div>
+      
       <div class="col-md-8 offset-md-1">
         <h2>Books</h2>
         <table class="table">
@@ -42,11 +43,13 @@
               </td>
               <td><%= link_to book.title, book_path(@user.books.ids) %></td>
               <td><%= book.body %></td>
+              <td>コメント数: <%= "#{book.book_comments.count}" %></td>
             </tr>
             <% end %>
           </tbody>
         </table>
       </div>
+      
       <!-- 部分テンプレート New Book -->
       <%= render 'books/list', book: @book %>
     </div>
