@@ -6,6 +6,7 @@ class FavoritesController < ApplicationController
     favorite.save
     redirect_to request.referer
   end
+  
 
   def destroy
     book = Book.find(params[:book_id])
