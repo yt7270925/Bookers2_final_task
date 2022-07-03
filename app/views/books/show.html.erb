@@ -36,14 +36,14 @@
                 <td>
                   <%= link_to book_favorites_path(@book), method: :delete do %>
                     <i class="fa-solid fa-heart destroy-heart"></i>
-                    <%= @book.favorites.count %>
                   <% end %>
+                  <%= @book.favorites.count %>
                 </td>
                 <td>
                   <%= link_to book_favorites_path(@book), method: :post do %>
                     <i class="fa-solid fa-heart create-heart"></i>
-                    <%= @book.favorites.count %>
                   <% end %>
+                  <%= @book.favorites.count %>
                 </td>
               <% end %>
               <% if @book.user == current_user %>
