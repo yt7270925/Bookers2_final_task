@@ -6,6 +6,7 @@ class Favorite < ApplicationRecord
   # Bookモデルとのアソシエーション
   belongs_to :book
 
-  validate_uniqueness_of :book_id, scope: :user_id
+  # 1user 1favorite
+  validates_uniqueness_of :book_id, scope: :user_id
 
 end
